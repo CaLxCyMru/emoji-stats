@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oceanroleplay/discord.ts-example.git"
+    "url": "git+https://github.com/CaLxCyMru/emoji-stats.git"
   },
   "keywords": [
     "discordx",
@@ -24,9 +24,9 @@
   "author": "CaLxCyMru",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oceanroleplay/discord.ts-example/issues"
+    "url": "https://github.com/CaLxCyMru/emoji-stats/issues"
   },
-  "homepage": "https://github.com/oceanroleplay/discord.ts-example#readme",
+  "homepage": "https://github.com/CaLxCyMru/emoji-stats",
   "devDependencies": {
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
