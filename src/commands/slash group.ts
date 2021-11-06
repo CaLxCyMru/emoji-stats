@@ -1,58 +1,58 @@
-import { CommandInteraction } from "discord.js";
-import { Discord, Slash, SlashOption, SlashGroup, SlashChoice } from "discordx";
+import { CommandInteraction } from 'discord.js';
+import { Discord, Slash, SlashOption, SlashGroup, SlashChoice } from 'discordx';
 
 enum TextChoices {
-  Hello = "Hello",
-  "Good Bye" = "GoodBye",
+  Hello = 'Hello',
+  'Good Bye' = 'GoodBye',
 }
 
 @Discord()
-@SlashGroup("testing", "Testing group description", {
-  maths: "maths group description",
-  text: "text group description",
+@SlashGroup('testing', 'Testing group description', {
+  maths: 'maths group description',
+  text: 'text group description',
 })
 export abstract class AppDiscord {
-  @Slash("add")
-  @Slash("add9")
-  @SlashGroup("maths")
+  @Slash('add')
+  @Slash('add9')
+  @SlashGroup('maths')
   add(
-    @SlashOption("x", { description: "x value", required: true })
+    @SlashOption('x', { description: 'x value', required: true })
     x: number,
-    @SlashOption("y", { description: "y value", required: true })
+    @SlashOption('y', { description: 'y value', required: true })
     y: number,
-    interaction: CommandInteraction
+    interaction: CommandInteraction,
   ) {
     interaction.reply(String(x + y));
   }
 
-  @Slash("multiply")
-  @SlashGroup("maths")
+  @Slash('multiply')
+  @SlashGroup('maths')
   multiply(
-    @SlashOption("x", { description: "x value", required: true })
+    @SlashOption('x', { description: 'x value', required: true })
     x: number,
-    @SlashOption("y", { description: "y value", required: true })
+    @SlashOption('y', { description: 'y value', required: true })
     y: number,
-    interaction: CommandInteraction
+    interaction: CommandInteraction,
   ) {
     interaction.reply(String(x * y));
   }
 
-  @Slash("hello")
-  @SlashGroup("text")
+  @Slash('hello')
+  @SlashGroup('text')
   hello(
     @SlashChoice(TextChoices)
-    @SlashOption("text", { required: true })
+    @SlashOption('text', { required: true })
     text: TextChoices,
-    interaction: CommandInteraction
+    interaction: CommandInteraction,
   ) {
     interaction.reply(text);
   }
 
-  @Slash("hello")
+  @Slash('hello')
   root(
-    @SlashOption("text", { required: true })
+    @SlashOption('text', { required: true })
     text: string,
-    interaction: CommandInteraction
+    interaction: CommandInteraction,
   ) {
     interaction.reply(text);
   }
@@ -60,12 +60,12 @@ export abstract class AppDiscord {
 
 @Discord()
 export abstract class AppDiscord1 {
-  @Slash("hello")
-  @Slash("hellox")
+  @Slash('hello')
+  @Slash('hellox')
   add(
-    @SlashOption("text", { required: true })
+    @SlashOption('text', { required: true })
     text: string,
-    interaction: CommandInteraction
+    interaction: CommandInteraction,
   ) {
     interaction.reply(text);
   }

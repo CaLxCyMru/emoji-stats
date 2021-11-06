@@ -1,14 +1,14 @@
-import "reflect-metadata";
-import path from "path";
-import { Intents, Interaction, Message } from "discord.js";
-import { Client } from "discordx";
+import 'reflect-metadata';
+import path from 'path';
+import { Intents, Interaction, Message } from 'discord.js';
+import { Client } from 'discordx';
 import dotenv from 'dotenv';
 
-dotenv.config({ path: '.env'});
+dotenv.config({ path: '.env' });
 
 const client = new Client({
   simpleCommand: {
-    prefix: "!",
+    prefix: '!',
   },
   intents: [
     Intents.FLAGS.GUILDS,
@@ -17,14 +17,14 @@ const client = new Client({
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
   classes: [
-    path.join(__dirname, "commands", "**/*.{ts,js}"),
-    path.join(__dirname, "events", "**/*.{ts,js}"),
+    path.join(__dirname, 'commands', '**/*.{ts,js}'),
+    path.join(__dirname, 'events', '**/*.{ts,js}'),
   ],
-  botGuilds: [(client) => client.guilds.cache.map((guild) => guild.id)],
+  botGuilds: [client => client.guilds.cache.map(guild => guild.id)],
   silent: true,
 });
 
-client.once("ready", async () => {
+client.once('ready', async () => {
   // init all applicaiton commands
   await client.initApplicationCommands({
     guild: { log: true },
@@ -34,15 +34,15 @@ client.once("ready", async () => {
   // init permissions; enabled log to see changes
   await client.initApplicationPermissions(true);
 
-  console.log("Bot started");
+  console.log('Bot started and ready to accept commands');
 });
 
-client.on("interactionCreate", (interaction: Interaction) => {
+client.on('interactionCreate', (interaction: Interaction) => {
   client.executeInteraction(interaction);
 });
 
-client.on("messageCreate", (message: Message) => {
+client.on('messageCreate', (message: Message) => {
   client.executeCommand(message);
 });
 
-client.login(process.env.BOT_TOKEN ?? ""); // provide your bot token
+client.login(process.env.BOT_TOKEN ?? ''); // provide your bot token
