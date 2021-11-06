@@ -2,6 +2,9 @@ import "reflect-metadata";
 import path from "path";
 import { Intents, Interaction, Message } from "discord.js";
 import { Client } from "discordx";
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env'});
 
 const client = new Client({
   simpleCommand: {
